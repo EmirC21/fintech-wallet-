@@ -1,0 +1,64 @@
+# Build
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+out/
+*.class
+*.log
+.mvn/wrapper/maven-wrapper.jar
+HELP.md
+
+# IDE: IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# IDE: Eclipse / STS
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+bin/
+
+# IDE: NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# IDE: VS Code (önerilen eklentiler hariç)
+.vscode/
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets / local config: asla commit'lenmez
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+application-local.yml
+application-local.yaml
+application-local.properties
+
+# Local Docker volumes / data
+docker/data/
+
+# Kişisel çalışma notları (Claude Code talimatları, öğrenme günlüğü)
+CLAUDE.md
+.claude/
+docs/LEARNING_LOG.md
