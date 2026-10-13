@@ -1,0 +1,25 @@
+# Lokal geliştirme ortamı: uygulamanın ihtiyaç duyduğu servisler.
+# Değerler aynı klasördeki .env dosyasından okunur (.env.example'dan kopyalanır).
+name: fintech-wallet
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: fintech-wallet-postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
