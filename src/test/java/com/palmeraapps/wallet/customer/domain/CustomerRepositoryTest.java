@@ -21,14 +21,14 @@ class CustomerRepositoryTest {
     @Test
     void findsCustomerByEmail() {
         // given: veritabanında bir müşteri var
-        Customer customer = new Customer("Ali", "Yılmaz", "ali@mail.com");
+        Customer customer = new Customer("John", "Doe", "john.doe@example.com");
         customerRepository.save(customer);
 
         // when: e-postasıyla arıyoruz
-        Optional<Customer> found = customerRepository.findByEmail("ali@mail.com");
+        Optional<Customer> found = customerRepository.findByEmail("john.doe@example.com");
 
         // then: müşteri bulunmalı ve bilgileri doğru olmalı
         assertThat(found).isPresent();
-        assertThat(found.get().getFirstName()).isEqualTo("Ali");
+        assertThat(found.get().getFirstName()).isEqualTo("John");
     }
 }

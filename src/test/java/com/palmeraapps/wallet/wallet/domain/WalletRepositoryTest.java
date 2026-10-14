@@ -24,7 +24,7 @@ class WalletRepositoryTest {
     @Test
     void findsAllWalletsOfCustomer() {
         // given
-        Customer customer = new Customer("ali", "topac", "a@gmail.com");
+        Customer customer = new Customer("John", "Doe", "john.doe@example.com");
         customerRepository.save(customer);
         Wallet wallet1 = new Wallet(customer, Currency.TRY, "TR123");
         Wallet wallet2 = new Wallet(customer, Currency.USD, "US123");
